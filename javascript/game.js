@@ -7,3 +7,7 @@ var canvas;
 function init() {
     canvas = $('canvas');
 }
+
+document.ready(function () {
+    init();
+});
