@@ -2,10 +2,15 @@
  * Created by Vance Miller on 11/15/2014.
  */
 
-var canvas;
+var stage;
 
 function init() {
-    canvas = $('canvas');
+    stage = new createjs.Stage("gameCanvas");
+    circle = new createjs.Shape();
+    circle.graphics.beginFill("red").drawCircle(0, 0, 40);
+    circle.x = circle.y = 50;
+    stage.addChild(circle);
+    stage.update();
 }
 
 document.ready(function () {
