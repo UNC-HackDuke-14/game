@@ -17,7 +17,7 @@ function Item(game_square, item_type) {
     this.y = item_type.y * game_square.square_dim; //float
     this.resource_consumption = item_type.resource_consumption;
     this.item_type = item_type;
-    createjs.Ticker.on("tick", this.consumeResource, this);
+    createjs.Ticker.on("tick", this.consumeResource.bind(this), this);
     this.paint();
 }
 
@@ -88,18 +88,18 @@ var ItemType = Object.freeze({
         numSprites: 2,
         imgPath: "./images/CeilingLampss.png"
     },
-    STOVE: { //add stove
+    STOVE: {
         name: "Stove",
         resource_type: ResourceRequest.resourceEnum.OIL,
         resource_consumption: {oilUsageRate: 2, waterUsageRate: 0, electricUsageRate: 0},
-        height: 0.2,
-        width: 0.2,
-        x: 0.4,
-        y: 0.8,
-        spriteWidth: 278,
-        spriteHeight: 110,
+        height: 0.552,
+        width: 0.284,
+        x: 0.716,
+        y: 0.448,
+        spriteWidth: 142,
+        spriteHeight: 276,
         numSprites: 2,
-        imgPath: "./images/Bathtubss.png"
+        imgPath: "./images/Stovess.png"
     },
     SINK: {
         name: "Sink",
@@ -108,7 +108,7 @@ var ItemType = Object.freeze({
         height: 0.35,
         width: 0.21,
         x: 0.45,
-        y: 0,
+        y: 0.2,
         spriteWidth: 105,
         spriteHeight: 175,
         numSprites: 2,
@@ -162,10 +162,12 @@ Item.prototype = {
             console.log("not enough resources! Must construct additional pylons.");
             this.isOn = false;
         }
+        changeFrame(this.display_obj, this.isOn);
         return this.isOn;
     },
 
     consumeResource: function () {
+        changeFrame(this.display_obj, this.isOn);
         if (this.isOn) {
             this.game_square.game_board.game_state.oil -= this.resource_consumption.oilUsageRate;
             this.game_square.game_board.game_state.water -= this.resource_consumption.waterUsageRate;

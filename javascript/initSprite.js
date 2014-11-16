@@ -21,6 +21,7 @@ function initSprite(x, y, spriteWidth, spriteHeight, numSprites, scaleX, scaleY,
 	
 	/*Sprite(spriteSheet, frame/animation)*/
 	sprite = new createjs.Sprite(spriteSheet, 1); //default isOff, frame 1
+	sprite.gotoAndStop(1);
 	sprite.setTransform(x, y);
 
 	/*Scale Sprite*/
@@ -32,10 +33,10 @@ function initSprite(x, y, spriteWidth, spriteHeight, numSprites, scaleX, scaleY,
 	return sprite;
 }
 
-function changeFrame(sprite, isOn) {
-	if (isOn) {
-		sprite.gotoAndPlay(0);
+function changeFrame(sprite, isThisThingOn) {
+	if (isThisThingOn) {
+		sprite.gotoAndStop(0);
 	} else {
-		sprite.gotoAndPlay(1);
+		sprite.gotoAndStop(1);
 	}
 }
