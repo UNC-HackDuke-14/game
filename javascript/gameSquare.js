@@ -8,7 +8,7 @@ var roomEnum = Object.freeze({
     STUDY: "Study",
     BEDROOM: "Bedroom",
     WORKSHOP: "Workshop",
-    ENTRANCE: "Entrance"
+    //ENTRANCE: "Entrance"
 });
 var roomTypes = [roomEnum.ENTERTAINMENT, roomEnum.BATHROOM, roomEnum.STUDY, roomEnum.BEDROOM, roomEnum.WORKSHOP, roomEnum.ENTRANCE];
 
@@ -57,14 +57,13 @@ GameSquare.prototype = {
                 this.items.push(new Item(this, ItemType.FAN));
                 this.items.push(new Item(this, ItemType.GAMES));
                 break;
-            case roomEnum.ENTRANCE:
-
-                break;
+            //case roomEnum.ENTRANCE:
+            //
+            //    break;
             case roomEnum.STUDY:
-
-                break;
+                this.items.push(new Item(this, ItemType.TV));
             case roomEnum.WORKSHOP:
-
+                this.items.push(new Item(this, ItemType.LAMP));
                 break;
             default:
 
@@ -72,8 +71,10 @@ GameSquare.prototype = {
         }
     },
     random_event: function () {
-        var item = Math.random() * this.items.length;
-        this.items[item].random_event();
+        if (this.items) {
+            var item = Math.floor(Math.random() * this.items.length);
+            this.items[item].random_event();
+        }
     },
     addEventListener: function (event, fn) {
         this.box.addEventListener(event, fn);

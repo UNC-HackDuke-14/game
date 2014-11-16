@@ -2,8 +2,6 @@
  * Created by andrew and kerry on 11/15/14.
  */
 
-
-
 function Item(game_square, item_type) {
     /*
      resource_consumption should be of the form:
@@ -79,7 +77,7 @@ var ItemType = Object.freeze({
     FAN: {
         //this is really a lamp
         name: "Fan",
-        resource_type: ResourceRequest.resourceEnum.WATER,
+        resource_type: ResourceRequest.resourceEnum.ELECTRICITY,
         resource_consumption: {oilUsageRate: 0, waterUsageRate: 0, electricUsageRate: 1},
         height: 0.241,
         width: 0.184,

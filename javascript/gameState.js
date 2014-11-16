@@ -6,6 +6,7 @@ function GameState(electricity, water, oil, level) {
     this.water = water;
     this.oil = oil;
     this.level = level;
+    this.maxVal = level;
 }
 
 GameState.prototype = {
