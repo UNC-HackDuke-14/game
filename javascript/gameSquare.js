@@ -15,8 +15,9 @@ function GameSquare(x, y, box_dim, game_board) {
     this.x = x;
     this.y = y;
     this.square_dim = box_dim;
-    this.game_square = game_board;
+    this.game_board = game_board;
     this.box = new createjs.Shape();
+    var request = new ResourceRequest(ResourceRequest.resourceEnum.ELECTRICITY, 3, this);
 }
 
 GameSquare.prototype = {
