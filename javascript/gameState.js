@@ -6,7 +6,7 @@ function GameState(electricity, water, oil, level) {
     this.water = water;
     this.oil = oil;
     this.level = level;
-    this.maxVal = level;
+    this.maxVal = water;
 }
 
 GameState.prototype = {
@@ -14,7 +14,7 @@ GameState.prototype = {
     water: 100,
     oil: 100,
     level: 100,
-    maxVal: 100
+    maxVal: 1000
 }
 
 function StatusBars(stage, state) {
