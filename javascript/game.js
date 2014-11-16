@@ -25,8 +25,8 @@ function loop() {
     createjs.Ticker.on("tick",function() {
         if (game_board.game_state.level <= 0) {
             var finish = new Date().getTime();
-            console.log("Game over. Score: " + finish - start_time);
-            createjs.Ticker.pause();
+            createjs.Ticker.setPaused(true);
+            alert("Game over. Score: ");
         } else {
             var rv = Math.floor(Math.random() * 100);
             if (rv < 2) {
