@@ -1,5 +1,5 @@
 /**
- * Created by Vance Miller on 11/15/2014.
+ * Created by Vance Miller, Sarah Rust, Andrew Park, and Kerry Ellwanger on 11/15/2014.
  */
 
 var roomEnum = Object.freeze({
@@ -11,6 +11,14 @@ var roomEnum = Object.freeze({
     ENTRANCE: "Entrance"
 });
 
+/**
+ * GameBoard constructor
+ * @param n the width of the board
+ * @param m the height of the board
+ * @param stage a reference to the canvas
+ * @param state a reference to the game state object
+ * @constructor
+ */
 function GameBoard(n, m, stage, state) {
     this.n = n;
     this.m = m;
@@ -46,14 +54,17 @@ GameBoard.prototype = {
     }
 };
 
+/**
+ * Helper function to create a n-dimensional array
+ * @param length
+ * @returns {Array}
+ */
 function createArray(length) {
     var arr = new Array(length || 0),
         i = length;
-
     if (arguments.length > 1) {
         var args = Array.prototype.slice.call(arguments, 1);
         while (i--) arr[length - 1 - i] = createArray.apply(this, args);
     }
-
     return arr;
 }

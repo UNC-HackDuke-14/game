@@ -1,7 +1,6 @@
 /**
- * Created by Vance Miller on 11/15/2014.
+ * Created by Vance Miller, Sarah Rust, Andrew Park, and Kerry Ellwanger on 11/15/2014.
  */
-
 function GameSquare(x, y, box_dim, game_stage, game_state) {
     this.x = x;
     this.y = y;
