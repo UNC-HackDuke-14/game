@@ -19,6 +19,7 @@ function Item(square, game_board, itemType) {
     this.y = itemType.y * square.square_dim; //float
     this.resource_consumption = itemType.resource_consumption;
     this.itemType = itemType;
+    createjs.Ticker.addEventListener("tick",this.consumeResource.bind(this));
     this.paint();
 }
 
@@ -96,6 +97,7 @@ Item.prototype = {
     height: 0,
     isOn: false,
     display_obj: undefined,
+    resource_consumption: undefined,
 
     paint: function () {
         this.display_obj.x = this.box.x;
@@ -103,28 +105,33 @@ Item.prototype = {
         this.display_obj.graphics.beginFill("black").drawRect(this.x,this.y,this.width,this.height);
         this.game_board.game_stage.addChild(this.display_obj);       
         this.game_board.game_stage.update();
+        this.display_obj.addEventListener("click",this.toggleState.bind(this));
     },
 
     toggleState: function () {
-        isOn = !isOn;
-        if (this.resource_consumption.oilUsageRate > this.state.oil ||
-            this.resource_consumption.waterUsageRate > this.state.water ||
-            this.resource_consumption.electricUsageRate > this.state.electricUsageRate) {
-            isOn = false;
+        this.isOn = !this.isOn;
+        console.log(this);
+        if (this.resource_consumption.oilUsageRate > this.game_board.game_state.oil ||
+            this.resource_consumption.waterUsageRate > this.game_board.game_state.water ||
+            this.resource_consumption.electricUsageRate > this.game_board.game_state.electricity) {
+            console.log("not enough resources! Must construct additional pylons.");
+            this.isOn = false;
         }
         ;
-        return isOn;
+        return this.isOn;
     },
 
     consumeResource: function () {
-        if (isOn) {
-            this.state.oil -= this.resource_consumption.oilUsageRate;
-            this.state.water -= this.resource_consumption.waterUsageRate;
-            this.state.electricity -= this.resource_consumption.electricUsageRate;
-            if (this.resource_consumption.oilUsageRate > this.state.oil ||
-                this.resource_consumption.waterUsageRate > this.state.water ||
-                this.resource_consumption.electricUsageRate > this.state.electricUsageRate) {
-                isOn = false;
+        console.log(this.game_board.game_state.oil,this.game_board.game_state.water,this.game_board.game_state.electricity);
+        if (this.isOn) {
+            this.game_board.game_state.oil -= this.resource_consumption.oilUsageRate;
+            this.game_board.game_state.water -= this.resource_consumption.waterUsageRate;
+            this.game_board.game_state.electricity -= this.resource_consumption.electricUsageRate;
+            if (this.resource_consumption.oilUsageRate > this.game_board.game_state.oil ||
+                this.resource_consumption.waterUsageRate > this.game_board.game_state.water ||
+                this.resource_consumption.electricUsageRate > this.game_board.game_state.electricity) {
+                console.log("Ran out of resources! Must construct additional pylons.");
+                this.isOn = false;
             }
         }
     }
