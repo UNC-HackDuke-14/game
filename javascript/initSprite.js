@@ -1,22 +1,32 @@
-function initSprite(x, y, imagepath, stage) {
-	/*x and y to scale sprite in x and y direction*/
+function initSprite(spriteWidth, spriteHeight, numSprites, imagepath, stage) {
 	
-	var spriteImage = new Image();
-	spriteImage.src = imagepath;
+	var sheet = new Image();
+	sheet.src = imagepath;
 	
 	var spriteSheet = new createjs.SpriteSheet({
-		images: [spriteImage],
-		frames: {regX:0,regY:0,width: 64, height: 64},
+		images: [sheet],
+		frames: {
+			regX: 	spriteWidth/2,
+			regY: 	spriteHeight/2,
+			count: 	numSprites,
+			width: 	spriteWidth,
+			height: spriteHeight,
+		},
 		/* {sequenceName: [firstFrame, lastFrame, NextSequenceName, Speed]}*/
-		animations: {fire:[0,25, "fire",1]}
+		animations: {
+			run: [0, 7, "run", 1]
+		}
 	});
-	var sprite = new createjs.Sprite(spriteSheet, "fire");
-	/*sprite.scaleX(x);
-	sprite.scaleY(y);*/
 	
+	/*Sprite(spriteSheet, frame/animation)*/
+	sprite = new createjs.Sprite(spriteSheet, "run");
+
+	/*Scale Sprite*/	
+	/*sprite.scaleX = spriteWidth;
+	sprite.scaleY = spriteHeight;*/
+	
+	/*Click Sprite for Event to Occur*/
 	/*sprite.addEventListener("click", function(event) {
-		sprite.gotoAndPlay("fire");
+		sprite.gotoAndPlay("run");
 	});*/
-    stage.addChild(sprite);
-	stage.update();
 }
