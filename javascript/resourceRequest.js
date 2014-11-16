@@ -15,7 +15,7 @@ function ResourceRequest(type, duration, game_square) {
     this.game_square = game_square;
     this.drawing = new createjs.Text(type + " request");
     this.paint(true);
-    createjs.Ticker.addEventListener("tick", this.tick(this));
+    createjs.Ticker.addEventListener("tick", this.tick.bind(this));
 }
 
 ResourceRequest.prototype = {
@@ -26,6 +26,8 @@ ResourceRequest.prototype = {
     game_square: undefined,
     paint: function (add) {
         if (add) {
+            this.drawing.x = this.game_square.x * this.game_square.square_dim;
+            this.drawing.y = this.game_square.y * this.game_square.square_dim;
             this.game_square.game_board.game_stage.addChild(this.drawing);
             console.log("draw");
         } else {
@@ -35,7 +37,6 @@ ResourceRequest.prototype = {
         this.game_square.game_board.game_stage.update();
     },
     tick: function(me) {
-        console.log(me);
         console.log(this);
     },
     addEventListener: function(event, fn) {
