@@ -14,13 +14,10 @@ function initSprite(x, y, spriteWidth, spriteHeight, numSprites, scale, speed, c
 		/* {sequenceName: [firstFrame, lastFrame, NextSequenceName, Speed]}*/
 		animations: {
 			run: [0, numSprites, "run", speed]
-		},
+		}
 	});
 
-
-	createjs.Ticker.addEventListener("tick",function(){
-		stage.update();
-	});
+	createjs.Ticker.on("tick",stage.update(), this);
 	
 	/*Sprite(spriteSheet, frame/animation)*/
 	sprite = new createjs.Sprite(spriteSheet, "run");

@@ -20,11 +20,18 @@ function init() {
 
 function loop() {
 
-    for (var i = 0; i < 2; i++) {
-        var x = Math.floor(Math.random() * game_board.n);
-        var y = Math.floor(Math.random() * game_board.m);
-        game_board.game_squares[x][y].random_event();
-    }
+    createjs.Ticker.on("tick",function() {
+        if (game_board.game_state.level == 0) {
+            console.log("Game over");
+        } else {
+            var rv = Math.floor(Math.random() * 100);
+            if (rv < 2) {
+                var x = Math.floor(Math.random() * game_board.n);
+                var y = Math.floor(Math.random() * game_board.m);
+                game_board.game_squares[x][y].random_event();
+            }
+        }
+    }, this);
     // select empty gameSquare
     // call gameSquare.doEvent()
     // delay for some time, decreasing as game progresses
