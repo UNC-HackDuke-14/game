@@ -13,8 +13,9 @@ function init() {
         var coordinates = game_board.coordinates_to_box(e.stageX, e.stageY);
         console.log("Clicked on square " + coordinates[0] + "," + coordinates[1] + "->" + game_board.box_corners(coordinates[0], coordinates[1]));
     });
+
+    createjs.Ticker.on("tick", status_bars.update, status_bars);
     loop();
-    createjs.Ticker.addEventListener("tick", status_bars.update.bind(status_bars));
 }
 
 function loop() {
@@ -23,6 +24,8 @@ function loop() {
         var x = Math.floor(Math.random() * game_board.n);
         var y = Math.floor(Math.random() * game_board.m);
         game_board.game_squares[x][y].random_event();
+
+        createjs.Ticker.addEventListener("tick", status_bars.update.bind(status_bars));
 
     }
     // select empty gameSquare
