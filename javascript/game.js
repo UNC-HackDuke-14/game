@@ -14,6 +14,11 @@ function init() {
 }
 
 function loop() {
+
+    while (true) {
+        var x = Math.floor(Math.random() * game_board.n);
+        var y = Math.floor(Math.random() * game_board.m);
+    }
     // select empty gameSquare
     // call gameSquare.doEvent()
     // delay for some time, decreasing as game progresses

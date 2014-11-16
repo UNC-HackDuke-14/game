@@ -18,6 +18,8 @@ function GameSquare(x, y, square_dim, game_board) {
     this.square_dim = square_dim;
     this.game_board = game_board;
     this.box = new createjs.Shape();
+    this.type = roomTypes[Math.floor(Math.random() * 6)];
+
 }
 
 GameSquare.prototype = {
@@ -27,6 +29,7 @@ GameSquare.prototype = {
     game_board: undefined,
     items: [],
     box: undefined,
+    type: undefined,
     paint: function () {
         this.box.graphics.beginFill("black").drawRect(0, 0, this.square_dim, this.square_dim).beginFill("white").drawRect(2, 2, this.square_dim - 4, this.square_dim - 4);
         this.box.x = this.x * this.square_dim;
@@ -35,25 +38,24 @@ GameSquare.prototype = {
         this.game_board.game_stage.addChild(this.box);
         this.game_board.game_stage.update();
 
-        roomTypeNum = Math.floor(Math.random()*6);
-        this.generateRoom(0,0,roomTypes[roomTypeNum]);
+        this.generateRoom(0, 0, this.type);
 
     },
     generateRoom: function (x, y, type) {
         switch (type) {
             case roomEnum.BATHROOM:
-                this.items.push(new Item(this,this.game_board,ItemType.TUB));
-                this.items.push(new Item(this,this.game_board,ItemType.SINK));
+                this.items.push(new Item(this, this.game_board, ItemType.TUB));
+                this.items.push(new Item(this, this.game_board, ItemType.SINK));
                 break;
             case roomEnum.BEDROOM:
-                this.items.push(new Item(this,this.game_board,ItemType.BED));
-                this.items.push(new Item(this,this.game_board,ItemType.LAMP));
+                this.items.push(new Item(this, this.game_board, ItemType.BED));
+                this.items.push(new Item(this, this.game_board, ItemType.LAMP));
                 break;
             case roomEnum.ENTERTAINMENT:
-                this.items.push(new Item(this,this.game_board,ItemType.TV));
-                this.items.push(new Item(this,this.game_board,ItemType.LAMP));
-                this.items.push(new Item(this,this.game_board,ItemType.FAN));
-                this.items.push(new Item(this,this.game_board,ItemType.SPEAKERS));
+                this.items.push(new Item(this, this.game_board, ItemType.TV));
+                this.items.push(new Item(this, this.game_board, ItemType.LAMP));
+                this.items.push(new Item(this, this.game_board, ItemType.FAN));
+                this.items.push(new Item(this, this.game_board, ItemType.SPEAKERS));
                 break;
             case roomEnum.ENTRANCE:
 
