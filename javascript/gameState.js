@@ -9,8 +9,4 @@ function GameState(electricity, water, oil, level) {
 }
 
 GameState.prototype = {
-    electricity: 100,
-    water: 100,
-    oil: 100,
-    level: 100
 }
