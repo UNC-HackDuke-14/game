@@ -1,4 +1,4 @@
-function initSprite(x, y, spriteWidth, spriteHeight, numSprites, scale, speed, clickFunction, imagepath, stage) {
+function initSprite(x, y, spriteWidth, spriteHeight, numSprites, scaleX, scaleY, speed, imagepath, stage) {
 	var sheet = new Image();
 	sheet.src = imagepath;
 	
@@ -28,9 +28,6 @@ function initSprite(x, y, spriteWidth, spriteHeight, numSprites, scale, speed, c
 	sprite.scaleY = spriteHeight * scale;
 	
 	stage.addChild(sprite);
-	
-	/*Click Sprite for Event to Occur*/
-	sprite.addEventListener("click", clickFunction);
 	
 	return sprite;
 }
