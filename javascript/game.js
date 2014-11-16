@@ -11,10 +11,6 @@ function init() {
     var status_bars = new StatusBars(status_stage, game_state);
     start_time = new Date().getTime();
     game_board = new GameBoard(3, 3, game_stage, game_state);
-    game_board.addEventListener("click", function (e) {
-        var coordinates = game_board.coordinates_to_box(e.stageX, e.stageY);
-        console.log("Clicked on square " + coordinates[0] + "," + coordinates[1] + "->" + game_board.box_corners(coordinates[0], coordinates[1]));
-    });
 
     createjs.Ticker.on("tick", status_bars.update, status_bars);
     loop();
@@ -24,11 +20,9 @@ function loop() {
 
     createjs.Ticker.on("tick",function(e) {
         if (game_board.game_state.level <= 0) {
-            var finish = new Date().getTime();
-            alert(finish);
-            alert(start_time);
+            var score = new Date().getTime() - start_time;
             e.remove();
-            console.log("Game over. Score: " + finish - start_time);
+            alert("Game over: your score is " + score);
         } else {
             var rv = Math.floor(Math.random() * 100);
             if (rv < 2) {
