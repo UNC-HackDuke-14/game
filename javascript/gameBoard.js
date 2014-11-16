@@ -16,6 +16,7 @@ function GameBoard(n, m, stage, state) {
     this.m = m;
     this.stage = stage;
     this.state = state;
+    this.squares = createArray(n, m);
 }
 
 GameBoard.prototype = {
@@ -23,7 +24,7 @@ GameBoard.prototype = {
     m: 0,
     stage: null,
     state: null,
-    boxes: [],
+    squares: [],
     coordinates_to_box: function (x, y) {
         return [Math.floor(x / this.box_dim), Math.floor(y / this.box_dim)];
     },
@@ -31,52 +32,28 @@ GameBoard.prototype = {
         return [x * this.box_dim, y * this.box_dim, (x + 1) * this.box_dim - 1, (y + 1 ) * this.box_dim - 1];
     },
     draw_boxes: function () {
-        var box_dim = Math.min(stage.canvas.width / n, stage.canvas.height / m);
+        var box_dim = Math.min(stage.canvas.width / this.n, stage.canvas.height / this.m);
         for (var i = 0; i < this.n; i++) {
             for (var j = 0; j < this.m; j++) {
                 var coords = this.box_corners(i, j);
-                paintBox(coords[0], coords[1], this.box_dim, this.box_dim, stage);
+                this.squares[i][j] = new GameSquare(i, j, box_dim, stage, gameState);
+                this.squares[i][j].paint();
             }
         }
     },
     addEventListener: function (event, fn) {
         stage.addEventListener(event, fn);
-    },
-    generateRoom: function (x, y, type) {
-        switch (type) {
-            case roomEnum.BATHROOM:
-
-                break;
-            case roomEnum.BEDROOM:
-
-                break;
-            case roomEnum.ENTERTAINMENT:
-
-                break;
-            case roomEnum.ENTRANCE:
-
-                break;
-            case roomEnum.STUDY:
-
-                break;
-            case roomEnum.WORKSHOP:
-
-                break;
-            default:
-
-                break;
-        }
     }
 };
 
-function paintBox(x, y, width, height, stage) {
-    var box = new createjs.Shape();
-    box.graphics.beginFill("black").drawRect(0, 0, width, height).beginFill("white").drawRect(2, 2, width - 4, height - 4);
-    box.x = x;
-    box.y = y;
-    box.addEventListener("click", function () {
-        alert("clicked " + this);
-    });
-    stage.addChild(box);
-    stage.update();
+function createArray(length) {
+    var arr = new Array(length || 0),
+        i = length;
+
+    if (arguments.length > 1) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        while (i--) arr[length - 1 - i] = createArray.apply(this, args);
+    }
+
+    return arr;
 }
