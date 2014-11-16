@@ -19,7 +19,7 @@ function init() {
     game.addEventListener("click", function (e) {
         var coords = game.coordinates_to_box(e.stageX, e.stageY);
         alert(coords[0] + "," + coords[1] + "->" + game.box_corners(coords[0], coords[1]));
-    })
+    });
 
 }
 
@@ -74,6 +74,8 @@ GameBoard.prototype = {
             case roomEnum.STUDY:
                 break;
             case roomEnum.WORKSHOP:
+                break;
+            default:
                 break;
         }
     }

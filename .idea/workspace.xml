@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9f28b56-2f27-45b8-8844-dfa5c6582263" name="Default" comment="remove unused code">
+    <list default="true" id="d9f28b56-2f27-45b8-8844-dfa5c6582263" name="Default" comment="switch&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/game.js" afterPath="$PROJECT_DIR$/javascript/game.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,8 +30,8 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8606557" vertical-offset="838" max-vertical-offset="1513">
-              <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.44262296" vertical-offset="107" max-vertical-offset="1547">
+              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
               <folding>
                 <element signature="e#0#49#0" expanded="false" />
               </folding>
@@ -262,7 +262,13 @@
       <option name="project" value="LOCAL" />
       <updated>1416100323155</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="switch&#10;">
+      <created>1416100505533</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1416100505533</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -332,7 +338,8 @@
     <MESSAGE value="coordinates, bounding boxes" />
     <MESSAGE value="room types" />
     <MESSAGE value="remove unused code" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove unused code" />
+    <MESSAGE value="switch&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="switch&#10;" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -351,8 +358,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8606557" vertical-offset="838" max-vertical-offset="1513">
-          <caret line="76" column="22" selection-start-line="76" selection-start-column="22" selection-end-line="76" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.44262296" vertical-offset="107" max-vertical-offset="1547">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
           <folding>
             <element signature="e#0#49#0" expanded="false" />
           </folding>
