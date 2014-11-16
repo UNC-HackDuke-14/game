@@ -1,18 +1,16 @@
 /**
  * Created by Vance Miller, Sarah Rust, Andrew Park, and Kerry Ellwanger on 11/15/2014.
  */
-var stage;
-var gameState;
-var gameBoard;
+var game_board;
 
 function init() {
-    stage = new createjs.Stage("gameCanvas");
-    initSprite(1, 1, "./images/explosion-sprite-sheet-i0.png", stage);
-    gameState = new GameState(100, 100, 100, 100);
-    gameBoard = new GameBoard(3, 3, stage, gameState);
-    gameBoard.addEventListener("click", function (e) {
-        var coordinates = gameBoard.coordinates_to_box(e.stageX, e.stageY);
-        alert(coordinates[0] + "," + coordinates[1] + "->" + gameBoard.box_corners(coordinates[0], coordinates[1]));
+    var game_stage = new createjs.Stage("gameCanvas");
+    initSprite(1, 1, "./images/explosion-sprite-sheet-i0.png", game_stage);
+    var game_state = new GameState(100, 100, 100, 100);
+    game_board = new GameBoard(3, 3, game_stage, game_state);
+    game_board.addEventListener("click", function (e) {
+        var coordinates = game_board.coordinates_to_box(e.stageX, e.stageY);
+        alert(coordinates[0] + "," + coordinates[1] + "->" + game_board.box_corners(coordinates[0], coordinates[1]));
     });
 }
 

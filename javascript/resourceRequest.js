@@ -8,10 +8,20 @@ var resourceEnum = Object.freeze({
     OIL: "Oil"
 });
 
-ResourceRequest = function (type) {
+ResourceRequest = function (x, y, type, game_board) {
     this.type = type;
+    this.x = x;
+    this.y = y;
+    this.game_board = game_board;
 }
 
 ResourceRequest.prototype = {
-    type: null
+    type: null,
+    time_remaining: 2,
+    x: 0,
+    y: 0,
+    game_state: null,
+    paint: function () {
+        this.game_board
+    }
 }

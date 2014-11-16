@@ -6,16 +6,16 @@
  * GameBoard constructor
  * @param n the width of the board
  * @param m the height of the board
- * @param stage a reference to the canvas
- * @param state a reference to the game state object
+ * @param game_stage a reference to the canvas
+ * @param game_state a reference to the game state object
  * @constructor
  */
-function GameBoard(n, m, stage, state) {
+function GameBoard(n, m, game_stage, game_state) {
     this.n = n;
     this.m = m;
-    this.box_dim = Math.min(stage.canvas.width / this.n, stage.canvas.height / this.m);
-    this.stage = stage;
-    this.state = state;
+    this.box_dim = Math.min(game_stage.canvas.width / this.n, game_stage.canvas.height / this.m);
+    this.game_stage = game_stage;
+    this.game_state = game_state;
     this.squares = createArray(n, m);
     this.draw_boxes();
 }
@@ -24,8 +24,8 @@ GameBoard.prototype = {
     n: 0,
     m: 0,
     box_dim: 0,
-    stage: null,
-    state: null,
+    game_stage: null,
+    game_state: null,
     squares: [],
     coordinates_to_box: function (x, y) {
         return [Math.floor(x / this.box_dim), Math.floor(y / this.box_dim)];
@@ -36,14 +36,14 @@ GameBoard.prototype = {
     draw_boxes: function () {
         for (var i = 0; i < this.n; i++) {
             for (var j = 0; j < this.m; j++) {
-                var coords = this.box_corners(i, j);
-                this.squares[i][j] = new GameSquare(i, j, this.box_dim, this, gameState);
+                var coordinates = this.box_corners(i, j);
+                this.squares[i][j] = new GameSquare(i, j, this.box_dim, this, this.game_state);
                 this.squares[i][j].paint();
             }
         }
     },
     addEventListener: function (event, fn) {
-        this.stage.addEventListener(event, fn);
+        this.game_stage.addEventListener(event, fn);
     }
 };
 

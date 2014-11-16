@@ -11,12 +11,11 @@ var roomEnum = Object.freeze({
     ENTRANCE: "Entrance"
 });
 
-function GameSquare(x, y, box_dim, game_board, game_state) {
+function GameSquare(x, y, box_dim, game_board) {
     this.x = x;
     this.y = y;
     this.box_dim = box_dim;
     this.game_board = game_board;
-    this.game_state = game_state;
     this.box = new createjs.Shape();
 }
 
@@ -25,7 +24,6 @@ GameSquare.prototype = {
     y: 0,
     box_dim: 0,
     game_board: null,
-    game_state: null,
     items: [],
     box: null,
     paint: function () {
@@ -33,8 +31,8 @@ GameSquare.prototype = {
         this.box.x = this.x * this.box_dim;
         this.box.y = this.y * this.box_dim;
 
-        this.game_board.stage.addChild(this.box);
-        this.game_board.stage.update();
+        this.game_board.game_stage.addChild(this.box);
+        this.game_board.game_stage.update();
     },
     generateRoom: function (x, y, type) {
         switch (type) {
