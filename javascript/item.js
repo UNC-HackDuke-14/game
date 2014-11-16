@@ -163,11 +163,13 @@ Item.prototype = {
             this.isOn = false;
         }
         changeFrame(this.display_obj, this.isOn);
+        this.game_square.game_board.game_stage.update();
         return this.isOn;
     },
 
     consumeResource: function () {
         changeFrame(this.display_obj, this.isOn);
+        this.game_square.game_board.game_stage.update();
         if (this.isOn) {
             this.game_square.game_board.game_state.oil -= this.resource_consumption.oilUsageRate;
             this.game_square.game_board.game_state.water -= this.resource_consumption.waterUsageRate;
