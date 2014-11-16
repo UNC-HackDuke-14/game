@@ -11,11 +11,12 @@ var roomEnum = Object.freeze({
     ENTRANCE: "Entrance"
 });
 
-function GameBoard(n, m, stage) {
+function GameBoard(n, m, stage, state) {
     this.n = n;
     this.m = m;
     this.box_dim = Math.min(stage.canvas.width / n, stage.canvas.height / m);
     this.stage = stage;
+    this.state = state;
 }
 
 GameBoard.prototype = {
@@ -23,6 +24,7 @@ GameBoard.prototype = {
     m: 0,
     box_dim: 0,
     stage: null,
+    state: null,
     coordinates_to_box: function (x, y) {
         return [Math.floor(x / this.box_dim), Math.floor(y / this.box_dim)];
     },
@@ -64,3 +66,12 @@ GameBoard.prototype = {
         }
     }
 };
+
+function paintBox(x, y, width, height, stage) {
+    var box = new createjs.Shape();
+    box.graphics.beginFill("black").drawRect(0, 0, width, height).beginFill("white").drawRect(2, 2, width - 4, height - 4);
+    box.x = x;
+    box.y = y;
+    stage.addChild(box);
+    stage.update();
+}
