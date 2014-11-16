@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9f28b56-2f27-45b8-8844-dfa5c6582263" name="Default" comment="Got status bars to display and respond to click events">
-      <change type="DELETED" beforePath="C:\Users\Vance Miller\Documents\GitHub\game\javascript\tweenjs-0.5.1.min.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/game.js" afterPath="$PROJECT_DIR$/javascript/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/gameState.js" afterPath="$PROJECT_DIR$/javascript/gameState.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/resourceRequest.js" afterPath="$PROJECT_DIR$/javascript/resourceRequest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="game.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,17 +31,17 @@
       <file leaf-file-name="gameState.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/gameState.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="359" max-vertical-offset="1122">
-              <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="376" max-vertical-offset="1139">
+              <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5347313" vertical-offset="0" max-vertical-offset="816">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
               <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
               <folding />
             </state>
@@ -63,8 +63,8 @@
       <file leaf-file-name="initSprite.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/javascript/initSprite.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -90,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resourceRequest.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="resourceRequest.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/resourceRequest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-              <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.592" vertical-offset="372" max-vertical-offset="1139">
+              <caret line="50" column="76" selection-start-line="50" selection-start-column="76" selection-end-line="50" selection-end-column="76" />
               <folding>
                 <element signature="e#0#49#0" expanded="false" />
               </folding>
@@ -127,13 +127,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/javascript/gameBoard.js" />
-        <option value="$PROJECT_DIR$/javascript/gameState.js" />
         <option value="$PROJECT_DIR$/javascript/gameSquare.js" />
         <option value="$PROJECT_DIR$/javascript/item.js" />
         <option value="$PROJECT_DIR$/javascript/initSprite.js" />
-        <option value="$PROJECT_DIR$/javascript/resourceRequest.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/javascript/game.js" />
+        <option value="$PROJECT_DIR$/javascript/gameState.js" />
+        <option value="$PROJECT_DIR$/javascript/resourceRequest.js" />
       </list>
     </option>
   </component>
@@ -687,19 +687,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/initSprite.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/resourceRequest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#49#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -729,19 +719,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/gameState.js">
+    <entry file="file://$PROJECT_DIR$/javascript/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="359" max-vertical-offset="1122">
-          <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/game.js">
+    <entry file="file://$PROJECT_DIR$/javascript/gameState.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5347313" vertical-offset="0" max-vertical-offset="816">
-          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="376" max-vertical-offset="1139">
+          <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/resourceRequest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.592" vertical-offset="372" max-vertical-offset="1139">
+          <caret line="50" column="76" selection-start-line="50" selection-start-column="76" selection-end-line="50" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#49#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -48,14 +48,15 @@ ResourceRequest.prototype = {
             var t = new Date().getTime() - this.start_time;
             var c = this.duration;
             if (c < t) {
-                this.item.game_square.game_board.game_state.level -= 5;
+                this.item.game_square.game_board.game_state.level = Math.max(this.item.game_square.game_board.game_state.level - 5, 0);
+
                 this.paint(false, 0);
                 e.remove();
             } else {
                 this.paint(true, t / c);
             }
         } else {
-            this.item.game_square.game_board.game_state.level++;
+            this.item.game_square.game_board.game_state.level = Math.min(this.item.game_square.game_board.game_state.level + 1, 100);
             this.paint(false, 0);
             e.remove();
         }
