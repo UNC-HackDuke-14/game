@@ -6,9 +6,13 @@ var stage;
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
-    var game = new GameBoard(5, 9, stage);
+    var game = new GameBoard(5, 5, stage);
     game.draw_boxes();
-    makeBoxArray(1, 2, stage);
+    game.addEventListener("click", function (e) {
+        var coords = game.coordinates_to_box(e.stageX, e.stageY)
+        alert(coords[0] + "," + coords[1] + "->" + game.box_corners(coords[0], coords[1]));
+    })
+
 }
 
 function makeBoxArray(n, m, stage) {
@@ -38,16 +42,22 @@ GameBoard.prototype = {
     m: 0,
     box_dim: 0,
     stage: null,
-    box_start_coordinates: function (x, y) {
-        return [x * this.box_dim, y * this.box_dim];
+    coordinates_to_box: function (x, y) {
+        return [Math.floor(x / this.box_dim), Math.floor(y / this.box_dim)];
+    },
+    box_corners: function (x, y) {
+        return [x * this.box_dim, y * this.box_dim, (x + 1) * this.box_dim - 1, (y + 1 ) * this.box_dim - 1];
     },
     draw_boxes: function () {
         for (var i = 0; i < this.n; i++) {
             for (var j = 0; j < this.m; j++) {
-                var coords = this.box_start_coordinates(i, j);
+                var coords = this.box_corners(i, j);
                 paintBox(coords[0], coords[1], this.box_dim, this.box_dim, stage);
             }
         }
+    },
+    addEventListener: function (event, fn) {
+        stage.addEventListener(event, fn);
     }
 }
 
