@@ -3,7 +3,7 @@
  */
 
 var stage;
-var roomType = Object.freeze({
+var roomEnum = Object.freeze({
     ENTERTAINMENT: "Entertainment",
     BATHROOM: "Bathroom",
     STUDY: "Study",
@@ -60,6 +60,22 @@ GameBoard.prototype = {
     },
     addEventListener: function (event, fn) {
         stage.addEventListener(event, fn);
+    },
+    generateRoom: function (type) {
+        switch (type) {
+            case roomEnum.BATHROOM:
+                break;
+            case roomEnum.BEDROOM:
+                break;
+            case roomEnum.ENTERTAINMENT:
+                break;
+            case roomEnum.ENTRANCE:
+                break;
+            case roomEnum.STUDY:
+                break;
+            case roomEnum.WORKSHOP:
+                break;
+        }
     }
 };
 
