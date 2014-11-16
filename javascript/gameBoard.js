@@ -14,7 +14,6 @@ var roomEnum = Object.freeze({
 function GameBoard(n, m, stage, state) {
     this.n = n;
     this.m = m;
-    this.box_dim = Math.min(stage.canvas.width / n, stage.canvas.height / m);
     this.stage = stage;
     this.state = state;
 }
@@ -22,9 +21,9 @@ function GameBoard(n, m, stage, state) {
 GameBoard.prototype = {
     n: 0,
     m: 0,
-    box_dim: 0,
     stage: null,
     state: null,
+    boxes: [],
     coordinates_to_box: function (x, y) {
         return [Math.floor(x / this.box_dim), Math.floor(y / this.box_dim)];
     },
@@ -32,6 +31,7 @@ GameBoard.prototype = {
         return [x * this.box_dim, y * this.box_dim, (x + 1) * this.box_dim - 1, (y + 1 ) * this.box_dim - 1];
     },
     draw_boxes: function () {
+        var box_dim = Math.min(stage.canvas.width / n, stage.canvas.height / m);
         for (var i = 0; i < this.n; i++) {
             for (var j = 0; j < this.m; j++) {
                 var coords = this.box_corners(i, j);
@@ -60,8 +60,10 @@ GameBoard.prototype = {
 
                 break;
             case roomEnum.WORKSHOP:
+
                 break;
             default:
+
                 break;
         }
     }
@@ -72,6 +74,9 @@ function paintBox(x, y, width, height, stage) {
     box.graphics.beginFill("black").drawRect(0, 0, width, height).beginFill("white").drawRect(2, 2, width - 4, height - 4);
     box.x = x;
     box.y = y;
+    box.addEventListener("click", function () {
+        alert("clicked " + this);
+    });
     stage.addChild(box);
     stage.update();
 }
