@@ -10,6 +10,7 @@ var roomEnum = Object.freeze({
     WORKSHOP: "Workshop",
     ENTRANCE: "Entrance"
 });
+var roomTypes = [roomEnum.ENTERTAINMENT, roomEnum.BATHROOM, roomEnum.STUDY, roomEnum.BEDROOM, roomEnum.WORKSHOP, roomEnum.ENTRANCE];
 
 function GameSquare(x, y, square_dim, game_board) {
     this.x = x;
@@ -33,17 +34,26 @@ GameSquare.prototype = {
 
         this.game_board.game_stage.addChild(this.box);
         this.game_board.game_stage.update();
+
+        roomTypeNum = Math.floor(Math.random()*6);
+        this.generateRoom(0,0,roomTypes[roomTypeNum]);
+
     },
     generateRoom: function (x, y, type) {
         switch (type) {
             case roomEnum.BATHROOM:
-
+                this.items.push(new Item(this,this.game_board,ItemType.TUB));
+                this.items.push(new Item(this,this.game_board,ItemType.SINK));
                 break;
             case roomEnum.BEDROOM:
-
+                this.items.push(new Item(this,this.game_board,ItemType.BED));
+                this.items.push(new Item(this,this.game_board,ItemType.LAMP));
                 break;
             case roomEnum.ENTERTAINMENT:
-
+                this.items.push(new Item(this,this.game_board,ItemType.TV));
+                this.items.push(new Item(this,this.game_board,ItemType.LAMP));
+                this.items.push(new Item(this,this.game_board,ItemType.FAN));
+                this.items.push(new Item(this,this.game_board,ItemType.SPEAKERS));
                 break;
             case roomEnum.ENTRANCE:
 

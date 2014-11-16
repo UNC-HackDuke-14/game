@@ -21,7 +21,7 @@ function GameBoard(n, m, game_stage, game_state) {
     var requests = [];
     for (var i = 0; i < this.n; i++) {
         for (var j = 0; j < this.m; j++) {
-            requests[i + j] = (new ResourceRequest(ResourceRequest.resourceEnum.ELECTRICITY, 3, this.squares[i][j]));
+            requests[i*m + j] = (new ResourceRequest(ResourceRequest.resourceEnum.ELECTRICITY, 3, this.squares[i][j]));
         }
     }
 }
