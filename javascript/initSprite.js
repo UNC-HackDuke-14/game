@@ -1,4 +1,4 @@
-function initSprite(spriteWidth, spriteHeight, numSprites, imagepath, stage) {
+function initSprite(x, y, spriteWidth, spriteHeight, numSprites, scale, speed, clickFunction, imagepath, stage) {
 	var sheet = new Image();
 	sheet.src = imagepath;
 	
@@ -13,7 +13,7 @@ function initSprite(spriteWidth, spriteHeight, numSprites, imagepath, stage) {
 		},
 		/* {sequenceName: [firstFrame, lastFrame, NextSequenceName, Speed]}*/
 		animations: {
-			run: [0, 25, "run", 0.5]
+			run: [0, numSprites, "run", speed]
 		},
 	});
 
@@ -24,15 +24,16 @@ function initSprite(spriteWidth, spriteHeight, numSprites, imagepath, stage) {
 	
 	/*Sprite(spriteSheet, frame/animation)*/
 	sprite = new createjs.Sprite(spriteSheet, "run");
-
-	stage.addChild(sprite);
+	sprite.setTransform(x, y);
 
 	/*Scale Sprite*/	
-	/*sprite.scaleX = spriteWidth;
-	sprite.scaleY = spriteHeight;*/
+	sprite.scaleX = spriteWidth * scale;
+	sprite.scaleY = spriteHeight * scale;
+	
+	stage.addChild(sprite);
 	
 	/*Click Sprite for Event to Occur*/
-	/*sprite.addEventListener("click", function(event) {
-		sprite.gotoAndPlay("run");
-	});*/
+	sprite.addEventListener("click", clickFunction);
+	
+	return sprite;
 }
