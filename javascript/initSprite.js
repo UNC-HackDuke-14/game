@@ -1,5 +1,5 @@
 function initSprite(spriteWidth, spriteHeight, numSprites, imagepath, stage) {
-	
+	debugger;
 	var sheet = new Image();
 	sheet.src = imagepath;
 	

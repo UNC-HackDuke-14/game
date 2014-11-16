@@ -7,7 +7,7 @@ function init() {
     var game_stage = new createjs.Stage("gameCanvas");
     
     /*(spriteWidth, spriteHeight, numSprites, imagepath, stage)*/
-    initSprite(512, 256, 8,"images/runningcat.png", stage);
+    initSprite(512, 256, 8,"images/runningcat.png", game_stage);
     
     var game_state = new GameState(100, 100, 100, 100);
     game_board = new GameBoard(3, 3, game_stage, game_state);
