@@ -16,14 +16,8 @@ function GameBoard(n, m, game_stage, game_state) {
     this.box_dim = Math.min(game_stage.canvas.width / this.n, game_stage.canvas.height / this.m);
     this.game_stage = game_stage;
     this.game_state = game_state;
-    this.squares = createArray(n, m);
+    this.game_squares = createArray(n, m);
     this.draw_boxes();
-    var requests = [];
-    for (var i = 0; i < this.n; i++) {
-        for (var j = 0; j < this.m; j++) {
-            requests[i*m + j] = (new ResourceRequest(ResourceRequest.resourceEnum.ELECTRICITY, 3, this.squares[i][j]));
-        }
-    }
 }
 
 GameBoard.prototype = {
@@ -32,7 +26,7 @@ GameBoard.prototype = {
     box_dim: 0,
     game_stage: undefined,
     game_state: undefined,
-    squares: [],
+    game_squares: [],
     coordinates_to_box: function (x, y) {
         return [Math.floor(x / this.box_dim), Math.floor(y / this.box_dim)];
     },
@@ -43,8 +37,8 @@ GameBoard.prototype = {
         for (var i = 0; i < this.n; i++) {
             for (var j = 0; j < this.m; j++) {
                 var coordinates = this.box_corners(i, j);
-                this.squares[i][j] = new GameSquare(i, j, this.box_dim, this, this.game_state);
-                this.squares[i][j].paint();
+                this.game_squares[i][j] = new GameSquare(i, j, this.box_dim, this, this.game_state);
+                this.game_squares[i][j].paint();
             }
         }
     },

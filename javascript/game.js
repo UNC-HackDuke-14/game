@@ -11,11 +11,20 @@ function init() {
     game_board = new GameBoard(3, 3, game_stage, game_state);
     game_board.addEventListener("click", function (e) {
         var coordinates = game_board.coordinates_to_box(e.stageX, e.stageY);
+        console.log("Clicked on square " + coordinates[0] + "," + coordinates[1] + "->" + game_board.box_corners(coordinates[0], coordinates[1]));
     });
+    loop();
     createjs.Ticker.addEventListener("tick", status_bars.update.bind(status_bars));
 }
 
 function loop() {
+
+    for (var i = 0; i < 2; i++) {
+        var x = Math.floor(Math.random() * game_board.n);
+        var y = Math.floor(Math.random() * game_board.m);
+        game_board.game_squares[x][y].random_event();
+
+    }
     // select empty gameSquare
     // call gameSquare.doEvent()
     // delay for some time, decreasing as game progresses
