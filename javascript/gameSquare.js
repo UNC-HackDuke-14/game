@@ -1,6 +1,16 @@
 /**
  * Created by Vance Miller, Sarah Rust, Andrew Park, and Kerry Ellwanger on 11/15/2014.
  */
+
+var roomEnum = Object.freeze({
+    ENTERTAINMENT: "Entertainment",
+    BATHROOM: "Bathroom",
+    STUDY: "Study",
+    BEDROOM: "Bedroom",
+    WORKSHOP: "Workshop",
+    ENTRANCE: "Entrance"
+});
+
 function GameSquare(x, y, box_dim, game_board, game_state) {
     this.x = x;
     this.y = y;

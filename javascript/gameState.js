@@ -12,17 +12,5 @@ GameState.prototype = {
     electricity: 100,
     water: 100,
     oil: 100,
-    level: 100,
-    addElectricity: function (amount) {
-        electricity += amount;
-    },
-    addWater: function (amount) {
-        water += amount;
-    },
-    addOil: function (amount) {
-        oil += amount;
-    },
-    addLevel: function (amount) {
-        level += amount;
-    }
+    level: 100
 }

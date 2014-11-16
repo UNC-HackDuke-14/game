@@ -2,15 +2,6 @@
  * Created by Vance Miller, Sarah Rust, Andrew Park, and Kerry Ellwanger on 11/15/2014.
  */
 
-var roomEnum = Object.freeze({
-    ENTERTAINMENT: "Entertainment",
-    BATHROOM: "Bathroom",
-    STUDY: "Study",
-    BEDROOM: "Bedroom",
-    WORKSHOP: "Workshop",
-    ENTRANCE: "Entrance"
-});
-
 /**
  * GameBoard constructor
  * @param n the width of the board
