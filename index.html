@@ -48,9 +48,9 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav nav-justified">
                     <li>
-                        <a href="#">Scoreboard</a>
+                        <button type="button" class="btn btn-success btn-default navbar-btn" data-toggle="modal" data-target="#myModal" onclick="showscore();">Show Scoreboard</button>
                     </li>
                 </ul>
             </div>
@@ -70,6 +70,23 @@
         </div>
 
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Top 100 Scores</h4>
+          </div>
+          <div class="modal-body" id="scorelist">
+            <!--Score content will be here -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- /.container -->
 
     <!-- jQuery Version 1.11.1 -->
@@ -86,6 +103,7 @@
     <script src="./javascript/gameSquare.js"></script>
     <script src="./javascript/game.js"></script>
     <script src="./javascript/initSprite.js"></script>
+    <script src="./javascript/scoreboard.js"></script>
 </body>
 
 </html>
