@@ -22,14 +22,17 @@ var roomEnum = Object.freeze({
 function GameBoard(n, m, stage, state) {
     this.n = n;
     this.m = m;
+    this.box_dim = Math.min(stage.canvas.width / this.n, stage.canvas.height / this.m);
     this.stage = stage;
     this.state = state;
     this.squares = createArray(n, m);
+    this.draw_boxes();
 }
 
 GameBoard.prototype = {
     n: 0,
     m: 0,
+    box_dim: 0,
     stage: null,
     state: null,
     squares: [],
@@ -40,17 +43,16 @@ GameBoard.prototype = {
         return [x * this.box_dim, y * this.box_dim, (x + 1) * this.box_dim - 1, (y + 1 ) * this.box_dim - 1];
     },
     draw_boxes: function () {
-        var box_dim = Math.min(stage.canvas.width / this.n, stage.canvas.height / this.m);
         for (var i = 0; i < this.n; i++) {
             for (var j = 0; j < this.m; j++) {
                 var coords = this.box_corners(i, j);
-                this.squares[i][j] = new GameSquare(i, j, box_dim, stage, gameState);
+                this.squares[i][j] = new GameSquare(i, j, this.box_dim, this, gameState);
                 this.squares[i][j].paint();
             }
         }
     },
     addEventListener: function (event, fn) {
-        stage.addEventListener(event, fn);
+        this.stage.addEventListener(event, fn);
     }
 };
 

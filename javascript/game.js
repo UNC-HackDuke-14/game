@@ -7,13 +7,12 @@ var gameBoard;
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
-    initSprite(1,1, "./images/explosion-sprite-sheet-i0.png", stage);
+    initSprite(1, 1, "./images/explosion-sprite-sheet-i0.png", stage);
     gameState = new GameState(100, 100, 100, 100);
     gameBoard = new GameBoard(3, 3, stage, gameState);
-    gameBoard.draw_boxes();
     gameBoard.addEventListener("click", function (e) {
-        var coords = gameBoard.coordinates_to_box(e.stageX, e.stageY);
-        alert(coords[0] + "," + coords[1] + "->" + gameBoard.box_corners(coords[0], coords[1]));
+        var coordinates = gameBoard.coordinates_to_box(e.stageX, e.stageY);
+        alert(coordinates[0] + "," + coordinates[1] + "->" + gameBoard.box_corners(coordinates[0], coordinates[1]));
     });
 }
 
