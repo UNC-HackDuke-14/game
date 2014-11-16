@@ -10,18 +10,20 @@ ResourceRequest.resourceEnum = Object.freeze({
 
 function ResourceRequest(type, duration, game_square) {
     this.type = type;
-    this.duration = duration;
-    this.percent_remaining = 1;
+    this.duration = duration * 1000;
+    this.start_time = new Date().getTime();
     this.game_square = game_square;
     this.drawing = new createjs.Text(type + " request");
+    this.drawing.alpha = 1;
     this.paint(true);
-    createjs.Ticker.addEventListener("tick", this.tick.bind(this));
+    createjs.Ticker.on("tick", this.tick, this);
+
 }
 
 ResourceRequest.prototype = {
-    type: null,
-    duration: 2,
-    percent_remaining: 1,
+    type: undefined,
+    duration: 2000,
+    start_time: 0,
     drawing: undefined,
     game_square: undefined,
     paint: function (add) {
@@ -36,8 +38,11 @@ ResourceRequest.prototype = {
         }
         this.game_square.game_board.game_stage.update();
     },
-    tick: function(me) {
-        console.log(this);
+    tick: function(e) {
+        if (this.start_time + this.duration < new Date().getTime()) {
+            this.paint(false);
+            e.remove();
+        }
     },
     addEventListener: function(event, fn) {
         this.drawing.addEventListener(event, fn);
