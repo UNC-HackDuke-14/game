@@ -18,6 +18,12 @@ function GameBoard(n, m, game_stage, game_state) {
     this.game_state = game_state;
     this.squares = createArray(n, m);
     this.draw_boxes();
+    var requests = [];
+    for (var i = 0; i < this.n; i++) {
+        for (var j = 0; j < this.m; j++) {
+            requests[i + j] = (new ResourceRequest(ResourceRequest.resourceEnum.ELECTRICITY, 3, this.squares[i][j]));
+        }
+    }
 }
 
 GameBoard.prototype = {
