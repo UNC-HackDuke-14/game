@@ -17,15 +17,9 @@ function init() {
     var game = new GameBoard(3, 3, stage);
     game.draw_boxes();
     game.addEventListener("click", function (e) {
-        var coords = game.coordinates_to_box(e.stageX, e.stageY)
+        var coords = game.coordinates_to_box(e.stageX, e.stageY);
         alert(coords[0] + "," + coords[1] + "->" + game.box_corners(coords[0], coords[1]));
     })
-
-}
-
-function makeBoxArray(n, m, stage) {
-    var mid_w = stage.canvas.width;
-    var mid_h = stage.canvas.height;
 
 }
 
@@ -67,7 +61,7 @@ GameBoard.prototype = {
     addEventListener: function (event, fn) {
         stage.addEventListener(event, fn);
     }
-}
+};
 
 
 
