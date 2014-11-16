@@ -3,7 +3,7 @@ TVss:
 	spriteHeight: 240
 	numSprites: 2
 
-idekLampss:
+floorLamp1ss:
 	spriteWidth: 57
 	spriteHeight: 240
 	numSprites: 2
@@ -31,4 +31,14 @@ BathroomSinkss:
 Bathtubss:
 	spriteWidth: 278
 	spriteHeight: 110
+	numSprites: 2
+
+floorLamp2ss:
+	spriteWidth: 66
+	spriteHeight: 309
+	numSprites: 2
+
+Dishwasherss:
+	spriteWidth: 236
+	spriteHeight: 132
 	numSprites: 2
