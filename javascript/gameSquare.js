@@ -9,8 +9,9 @@ var roomEnum = Object.freeze({
     BEDROOM: "Bedroom",
     WORKSHOP: "Workshop",
     //ENTRANCE: "Entrance"
+    KITCHEN: "Kitchen"
 });
-var roomTypes = [roomEnum.ENTERTAINMENT, roomEnum.BATHROOM, roomEnum.STUDY, roomEnum.BEDROOM, roomEnum.WORKSHOP, roomEnum.ENTRANCE];
+var roomTypes = [roomEnum.ENTERTAINMENT, roomEnum.BATHROOM, roomEnum.STUDY, roomEnum.BEDROOM, roomEnum.WORKSHOP, roomEnum.KITCHEN];
 
 function GameSquare(x, y, square_dim, game_board) {
     this.x = x;
@@ -56,6 +57,10 @@ GameSquare.prototype = {
                 this.items.push(new Item(this, ItemType.LAMP));
                 this.items.push(new Item(this, ItemType.FAN));
                 this.items.push(new Item(this, ItemType.GAMES));
+                break;
+            case roomEnum.KITCHEN:
+                this.items.push(new Item(this,ItemType.STOVE));
+                this.items.push(new Item(this, ItemType.SINK));
                 break;
             //case roomEnum.ENTRANCE:
             //
