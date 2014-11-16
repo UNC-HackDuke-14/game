@@ -110,11 +110,10 @@ Item.prototype = {
 
     toggleState: function () {
         this.isOn = !this.isOn;
-        console.log(this);
         if (this.resource_consumption.oilUsageRate > this.game_board.game_state.oil ||
             this.resource_consumption.waterUsageRate > this.game_board.game_state.water ||
             this.resource_consumption.electricUsageRate > this.game_board.game_state.electricity) {
-            console.log("not enough resources! Must construct additional pylons.");
+            //console.log("not enough resources! Must construct additional pylons.");
             this.isOn = false;
         }
         ;
@@ -122,7 +121,6 @@ Item.prototype = {
     },
 
     consumeResource: function () {
-        console.log(this.game_board.game_state.oil,this.game_board.game_state.water,this.game_board.game_state.electricity);
         if (this.isOn) {
             this.game_board.game_state.oil -= this.resource_consumption.oilUsageRate;
             this.game_board.game_state.water -= this.resource_consumption.waterUsageRate;
@@ -130,7 +128,7 @@ Item.prototype = {
             if (this.resource_consumption.oilUsageRate > this.game_board.game_state.oil ||
                 this.resource_consumption.waterUsageRate > this.game_board.game_state.water ||
                 this.resource_consumption.electricUsageRate > this.game_board.game_state.electricity) {
-                console.log("Ran out of resources! Must construct additional pylons.");
+                //console.log("Ran out of resources! Must construct additional pylons.");
                 this.isOn = false;
             }
         }
