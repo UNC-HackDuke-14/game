@@ -16,7 +16,7 @@ function ResourceRequest(item, duration) {
     this.progress_bar = new createjs.Shape();
     this.paint(true, 0);
     createjs.Ticker.on("tick", this.tick, this);
-    this.progress_bar.on("click", this.satisfy_request, this);
+    this.progress_bar.on("click", this.item.toggleState, this.item);
 }
 
 ResourceRequest.prototype = {
@@ -59,8 +59,5 @@ ResourceRequest.prototype = {
             this.paint(false, 0);
             e.remove();
         }
-    },
-    satisfy_request: function() {
-        this.item.toggleState();
     }
 }

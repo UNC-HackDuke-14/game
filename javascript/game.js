@@ -22,11 +22,13 @@ function init() {
 
 function loop() {
 
-    createjs.Ticker.on("tick",function() {
+    createjs.Ticker.on("tick",function(e) {
         if (game_board.game_state.level <= 0) {
             var finish = new Date().getTime();
-            createjs.Ticker.setPaused(true);
-            alert("Game over. Score: ");
+            alert(finish);
+            alert(start_time);
+            e.remove();
+            console.log("Game over. Score: " + finish - start_time);
         } else {
             var rv = Math.floor(Math.random() * 100);
             if (rv < 2) {
