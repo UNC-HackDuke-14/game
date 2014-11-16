@@ -22,3 +22,13 @@ LeftWindowss:
 	spriteWidth: 72
 	spriteHeight: 433
 	numSprites: 6
+
+BathroomSinkss:
+	spriteWidth: 105
+	spriteHeight: 175
+	numSprites: 2
+
+Bathtubss:
+	spriteWidth: 278
+	spriteHeight: 110
+	numSprites: 2
