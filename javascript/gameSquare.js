@@ -71,9 +71,9 @@ GameSquare.prototype = {
                 break;
         }
     },
-    randomEvent: function () {
-        var item = Math.random(items.length);
-        items[item].randomEvent();
+    random_event: function () {
+        var item = Math.random() * this.items.length;
+        this.items[item].random_event();
     },
     addEventListener: function (event, fn) {
         this.box.addEventListener(event, fn);

@@ -4,21 +4,21 @@
 
 
 
-function Item(game_square, itemType) {
+function Item(game_square, item_type) {
     /*
      resource_consumption should be of the form:
      {oilUsageRate: ???, waterUsageRate: ???, waterUsageRate: ???}
      */
 
-    this.width = itemType.width * game_square.square_dim;
-    this.height = itemType.height * game_square.square_dim;
+    this.width = item_type.width * game_square.square_dim;
+    this.height = item_type.height * game_square.square_dim;
     this.box = game_square.box;
     this.game_square = game_square;
     this.display_obj = new createjs.Shape();
-    this.x = itemType.x * game_square.square_dim; //float
-    this.y = itemType.y * game_square.square_dim; //float
-    this.resource_consumption = itemType.resource_consumption;
-    this.itemType = itemType;
+    this.x = item_type.x * game_square.square_dim; //float
+    this.y = item_type.y * game_square.square_dim; //float
+    this.resource_consumption = item_type.resource_consumption;
+    this.item_type = item_type;
     createjs.Ticker.on("tick", this.consumeResource, this);
     this.paint();
 }
@@ -124,7 +124,6 @@ Item.prototype = {
             console.log("not enough resources! Must construct additional pylons.");
             this.isOn = false;
         }
-        ;
         return this.isOn;
     },
 
@@ -143,9 +142,8 @@ Item.prototype = {
         }
     },
 
-    requestResource: function () {
+    random_event: function () {
         var request_duration = 3;
-        this.resource_request = new ResourceRequest(this.resource_type, request_duration, this.game_square);
-
+        this.resource_request = new ResourceRequest(this, request_duration);
     }
 }

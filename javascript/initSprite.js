@@ -1,4 +1,4 @@
-function initSprite(spriteWidth, spriteHeight, numSprites, imagepath, stage) {
+function initSprite(x, y, spriteWidth, spriteHeight, numSprites, speed, imagepath, stage) {
 	var sheet = new Image();
 	sheet.src = imagepath;
 	
@@ -13,10 +13,9 @@ function initSprite(spriteWidth, spriteHeight, numSprites, imagepath, stage) {
 		},
 		/* {sequenceName: [firstFrame, lastFrame, NextSequenceName, Speed]}*/
 		animations: {
-			run: [0, 25, "run", 0.5]
-		},
+			run: [0, numSprites, "run", 0.5]
+		}
 	});
-
 
 	createjs.Ticker.addEventListener("tick",function(){
 		stage.update();

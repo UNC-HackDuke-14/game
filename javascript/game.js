@@ -11,11 +11,12 @@ function init() {
         var coordinates = game_board.coordinates_to_box(e.stageX, e.stageY);
         console.log("Clicked on square " + coordinates[0] + "," + coordinates[1] + "->" + game_board.box_corners(coordinates[0], coordinates[1]));
     });
+    loop();
 }
 
 function loop() {
 
-    while (true) {
+    for (var i = 0; i < 2; i++) {
         var x = Math.floor(Math.random() * game_board.n);
         var y = Math.floor(Math.random() * game_board.m);
         game_board.game_squares[x][y].random_event();
