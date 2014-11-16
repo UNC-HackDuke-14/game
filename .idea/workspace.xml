@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9f28b56-2f27-45b8-8844-dfa5c6582263" name="Default" comment="refactored GameBoard to gameBoard.js&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascript/gameState.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/game.js" afterPath="$PROJECT_DIR$/javascript/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/gameBoard.js" afterPath="$PROJECT_DIR$/javascript/gameBoard.js" />
+    <list default="true" id="d9f28b56-2f27-45b8-8844-dfa5c6582263" name="Default" comment="gameState object">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/gameState.js" afterPath="$PROJECT_DIR$/javascript/gameState.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="game.iws" />
@@ -56,8 +54,8 @@
       <file leaf-file-name="gameState.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascript/gameState.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80122954" vertical-offset="0" max-vertical-offset="527">
-              <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.27868852" vertical-offset="0" max-vertical-offset="527">
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding>
                 <element signature="n#!!doc;n#GameState#0" expanded="false" />
               </folding>
@@ -308,7 +306,13 @@
       <option name="project" value="LOCAL" />
       <updated>1416101023750</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="gameState object">
+      <created>1416101608091</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1416101608091</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -381,7 +385,8 @@
     <MESSAGE value="switch&#10;" />
     <MESSAGE value="default case" />
     <MESSAGE value="refactored GameBoard to gameBoard.js&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored GameBoard to gameBoard.js&#10;" />
+    <MESSAGE value="gameState object" />
+    <option name="LAST_COMMIT_MESSAGE" value="gameState object" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -428,8 +433,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/gameState.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80122954" vertical-offset="0" max-vertical-offset="527">
-          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.27868852" vertical-offset="0" max-vertical-offset="527">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding>
             <element signature="n#!!doc;n#GameState#0" expanded="false" />
           </folding>

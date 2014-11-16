@@ -8,7 +8,7 @@ function GameState(electricity, water, oil, level) {
     this.level = level;
 }
 
-GameBoard.prototype = {
+GameState.prototype = {
     electricity: 100,
     water: 100,
     oil: 100,
