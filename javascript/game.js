@@ -8,6 +8,7 @@ var gameBoard;
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
+    initSprite(1,1, "./images/explosion-sprite-sheet-i0.png", stage);
     gameState = new GameState(100, 100, 100, 100);
     gameBoard = new GameBoard(3, 3, stage, gameState);
     gameBoard.draw_boxes();

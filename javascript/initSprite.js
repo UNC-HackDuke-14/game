@@ -5,10 +5,10 @@ function initSprite(x, y, imagepath, stage) {
 	spriteImage.src = imagepath;
 	
 	var spriteSheet = new createjs.SpriteSheet({
-		"images": [spriteImage],
-		"frames": {"regX":0,"regY":0,"width": 64, "height": 64},
+		images: [spriteImage],
+		frames: {regX:0,regY:0,width: 64, height: 64},
 		/* {sequenceName: [firstFrame, lastFrame, NextSequenceName, Speed]}*/
-		"animations": {"fire":[0,25, "fire",1]}
+		animations: {fire:[0,25, "fire",1]}
 	});
 	var sprite = new createjs.Sprite(spriteSheet, "fire");
 	/*sprite.scaleX(x);
