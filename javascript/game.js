@@ -24,9 +24,6 @@ function loop() {
         var x = Math.floor(Math.random() * game_board.n);
         var y = Math.floor(Math.random() * game_board.m);
         game_board.game_squares[x][y].random_event();
-
-        createjs.Ticker.addEventListener("tick", status_bars.update.bind(status_bars));
-
     }
     // select empty gameSquare
     // call gameSquare.doEvent()

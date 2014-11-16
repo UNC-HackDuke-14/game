@@ -2,8 +2,6 @@
  * Created by andrew and kerry on 11/15/14.
  */
 
-
-
 function Item(game_square, item_type) {
     /*
      resource_consumption should be of the form:
