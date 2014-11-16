@@ -24,8 +24,8 @@ GameBoard.prototype = {
     n: 0,
     m: 0,
     box_dim: 0,
-    game_stage: null,
-    game_state: null,
+    game_stage: undefined,
+    game_state: undefined,
     squares: [],
     coordinates_to_box: function (x, y) {
         return [Math.floor(x / this.box_dim), Math.floor(y / this.box_dim)];

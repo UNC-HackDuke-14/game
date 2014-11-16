@@ -14,25 +14,25 @@ var roomEnum = Object.freeze({
 function GameSquare(x, y, box_dim, game_board) {
     this.x = x;
     this.y = y;
-    this.box_dim = box_dim;
-    this.game_board = game_board;
+    this.square_dim = box_dim;
+    this.game_square = game_board;
     this.box = new createjs.Shape();
 }
 
 GameSquare.prototype = {
     x: 0,
     y: 0,
-    box_dim: 0,
-    game_board: null,
+    square_dim: 0,
+    game_board: undefined,
     items: [],
-    box: null,
+    box: undefined,
     paint: function () {
-        this.box.graphics.beginFill("black").drawRect(0, 0, this.box_dim, this.box_dim).beginFill("white").drawRect(2, 2, this.box_dim - 4, this.box_dim - 4);
-        this.box.x = this.x * this.box_dim;
-        this.box.y = this.y * this.box_dim;
+        this.box.graphics.beginFill("black").drawRect(0, 0, this.square_dim, this.square_dim).beginFill("white").drawRect(2, 2, this.square_dim - 4, this.square_dim - 4);
+        this.box.x = this.x * this.square_dim;
+        this.box.y = this.y * this.square_dim;
 
-        this.game_board.game_stage.addChild(this.box);
-        this.game_board.game_stage.update();
+        this.game_square.game_stage.addChild(this.box);
+        this.game_square.game_stage.update();
     },
     generateRoom: function (x, y, type) {
         switch (type) {
