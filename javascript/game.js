@@ -7,7 +7,7 @@ var start_time;
 function init() {
     var game_stage = new createjs.Stage("gameCanvas");
     var status_stage = new createjs.Stage("statusCanvas");
-    var game_state = new GameState(1000, 1000, 1000, 100);
+    var game_state = new GameState(500, 500, 500, 100);
     var status_bars = new StatusBars(status_stage, game_state);
     start_time = new Date().getTime();
     game_board = new GameBoard(3, 3, game_stage, game_state);
