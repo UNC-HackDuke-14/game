@@ -16,6 +16,7 @@ function GameBoard(n, m, stage, state) {
     this.m = m;
     this.stage = stage;
     this.state = state;
+    this.boxes = createArray(n, m);
 }
 
 GameBoard.prototype = {
@@ -35,7 +36,7 @@ GameBoard.prototype = {
         for (var i = 0; i < this.n; i++) {
             for (var j = 0; j < this.m; j++) {
                 var coords = this.box_corners(i, j);
-                paintBox(coords[0], coords[1], this.box_dim, this.box_dim, stage);
+                squares[i][j] = new GameSquare(i, j, gameState);
             }
         }
     },
@@ -69,14 +70,14 @@ GameBoard.prototype = {
     }
 };
 
-function paintBox(x, y, width, height, stage) {
-    var box = new createjs.Shape();
-    box.graphics.beginFill("black").drawRect(0, 0, width, height).beginFill("white").drawRect(2, 2, width - 4, height - 4);
-    box.x = x;
-    box.y = y;
-    box.addEventListener("click", function () {
-        alert("clicked " + this);
-    });
-    stage.addChild(box);
-    stage.update();
+function createArray(length) {
+    var arr = new Array(length || 0),
+        i = length;
+
+    if (arguments.length > 1) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        while (i--) arr[length - 1 - i] = createArray.apply(this, args);
+    }
+
+    return arr;
 }
