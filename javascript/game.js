@@ -3,14 +3,7 @@
  */
 
 var stage;
-var roomEnum = Object.freeze({
-    ENTERTAINMENT: "Entertainment",
-    BATHROOM: "Bathroom",
-    STUDY: "Study",
-    BEDROOM: "Bedroom",
-    WORKSHOP: "Workshop",
-    ENTRANCE: "Entrance"
-});
+
 
 function init() {
     stage = new createjs.Stage("gameCanvas");

@@ -2,6 +2,15 @@
  * Created by Vance Miller on 11/15/2014.
  */
 
+var roomEnum = Object.freeze({
+    ENTERTAINMENT: "Entertainment",
+    BATHROOM: "Bathroom",
+    STUDY: "Study",
+    BEDROOM: "Bedroom",
+    WORKSHOP: "Workshop",
+    ENTRANCE: "Entrance"
+});
+
 function GameBoard(n, m, stage) {
     this.n = n;
     this.m = m;
@@ -31,7 +40,7 @@ GameBoard.prototype = {
     addEventListener: function (event, fn) {
         stage.addEventListener(event, fn);
     },
-    generateRoom: function (type) {
+    generateRoom: function (x, y, type) {
         switch (type) {
             case roomEnum.BATHROOM:
 
