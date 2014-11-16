@@ -16,7 +16,7 @@ function GameBoard(n, m, stage, state) {
     this.m = m;
     this.stage = stage;
     this.state = state;
-    this.boxes = createArray(n, m);
+    this.squares = createArray(n, m);
 }
 
 GameBoard.prototype = {
@@ -24,7 +24,7 @@ GameBoard.prototype = {
     m: 0,
     stage: null,
     state: null,
-    boxes: [],
+    squares: [],
     coordinates_to_box: function (x, y) {
         return [Math.floor(x / this.box_dim), Math.floor(y / this.box_dim)];
     },
@@ -32,41 +32,17 @@ GameBoard.prototype = {
         return [x * this.box_dim, y * this.box_dim, (x + 1) * this.box_dim - 1, (y + 1 ) * this.box_dim - 1];
     },
     draw_boxes: function () {
-        var box_dim = Math.min(stage.canvas.width / n, stage.canvas.height / m);
+        var box_dim = Math.min(stage.canvas.width / this.n, stage.canvas.height / this.m);
         for (var i = 0; i < this.n; i++) {
             for (var j = 0; j < this.m; j++) {
                 var coords = this.box_corners(i, j);
-                squares[i][j] = new GameSquare(i, j, gameState);
+                this.squares[i][j] = new GameSquare(i, j, box_dim, stage, gameState);
+                this.squares[i][j].paint();
             }
         }
     },
     addEventListener: function (event, fn) {
         stage.addEventListener(event, fn);
-    },
-    generateRoom: function (x, y, type) {
-        switch (type) {
-            case roomEnum.BATHROOM:
-
-                break;
-            case roomEnum.BEDROOM:
-
-                break;
-            case roomEnum.ENTERTAINMENT:
-
-                break;
-            case roomEnum.ENTRANCE:
-
-                break;
-            case roomEnum.STUDY:
-
-                break;
-            case roomEnum.WORKSHOP:
-
-                break;
-            default:
-
-                break;
-        }
     }
 };
 
