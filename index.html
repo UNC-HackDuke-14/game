@@ -50,7 +50,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Scoreboard</a>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Show Scoreboard</button>
                     </li>
                 </ul>
             </div>
@@ -69,6 +69,24 @@
             </div>
         </div>
 
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Top 100 Scores</h4>
+          </div>
+          <div class="modal-body">
+            <!--Insert Score content here -->
+            Scores Here
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- /.container -->
 
