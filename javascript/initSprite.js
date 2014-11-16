@@ -1,4 +1,4 @@
-function initSprite(x, y, spriteWidth, spriteHeight, numSprites, scale, speed, clickFunction, imagepath, stage) {
+function initSprite(x, y, spriteWidth, spriteHeight, numSprites, scaleX, scaleY, speed, imagepath, stage) {
 	var sheet = new Image();
 	sheet.src = imagepath;
 	
@@ -12,28 +12,30 @@ function initSprite(x, y, spriteWidth, spriteHeight, numSprites, scale, speed, c
 			height: spriteHeight
 		},
 		/* {sequenceName: [firstFrame, lastFrame, NextSequenceName, Speed]}*/
-		animations: {
-			run: [0, numSprites, "run", speed]
-		},
 	});
 
 
-	createjs.Ticker.addEventListener("tick",function(){
+	/*createjs.Ticker.addEventListener("tick",function(){
 		stage.update();
-	});
+	 });*/
 	
 	/*Sprite(spriteSheet, frame/animation)*/
-	sprite = new createjs.Sprite(spriteSheet, "run");
+	sprite = new createjs.Sprite(spriteSheet, 1); //default isOff, frame 1
 	sprite.setTransform(x, y);
 
-	/*Scale Sprite*/	
-	sprite.scaleX = spriteWidth * scale;
-	sprite.scaleY = spriteHeight * scale;
+	/*Scale Sprite*/
+	sprite.scaleX = scaleX;
+	sprite.scaleY = scaleY;
 	
 	stage.addChild(sprite);
 	
-	/*Click Sprite for Event to Occur*/
-	sprite.addEventListener("click", clickFunction);
-	
 	return sprite;
+}
+
+function changeFrame(sprite, isOn) {
+	if (isOn) {
+		sprite.gotoAndPlay(0);
+	} else {
+		sprite.gotoAndPlay(1);
+	}
 }

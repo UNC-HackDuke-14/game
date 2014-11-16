@@ -55,7 +55,7 @@ GameSquare.prototype = {
                 this.items.push(new Item(this, ItemType.TV));
                 this.items.push(new Item(this, ItemType.LAMP));
                 this.items.push(new Item(this, ItemType.FAN));
-                this.items.push(new Item(this, ItemType.SPEAKERS));
+                this.items.push(new Item(this, ItemType.GAMES));
                 break;
             case roomEnum.ENTRANCE:
 
