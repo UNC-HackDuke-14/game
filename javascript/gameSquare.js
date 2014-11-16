@@ -44,18 +44,18 @@ GameSquare.prototype = {
     generateRoom: function (x, y, type) {
         switch (type) {
             case roomEnum.BATHROOM:
-                this.items.push(new Item(this, this.game_board, ItemType.TUB));
-                this.items.push(new Item(this, this.game_board, ItemType.SINK));
+                this.items.push(new Item(this, ItemType.TUB));
+                this.items.push(new Item(this, ItemType.SINK));
                 break;
             case roomEnum.BEDROOM:
-                this.items.push(new Item(this, this.game_board, ItemType.BED));
-                this.items.push(new Item(this, this.game_board, ItemType.LAMP));
+                this.items.push(new Item(this, ItemType.BED));
+                this.items.push(new Item(this, ItemType.LAMP));
                 break;
             case roomEnum.ENTERTAINMENT:
-                this.items.push(new Item(this, this.game_board, ItemType.TV));
-                this.items.push(new Item(this, this.game_board, ItemType.LAMP));
-                this.items.push(new Item(this, this.game_board, ItemType.FAN));
-                this.items.push(new Item(this, this.game_board, ItemType.SPEAKERS));
+                this.items.push(new Item(this, ItemType.TV));
+                this.items.push(new Item(this, ItemType.LAMP));
+                this.items.push(new Item(this, ItemType.FAN));
+                this.items.push(new Item(this, ItemType.SPEAKERS));
                 break;
             case roomEnum.ENTRANCE:
 
@@ -70,6 +70,10 @@ GameSquare.prototype = {
 
                 break;
         }
+    },
+    randomEvent: function () {
+        var item = Math.random(items.length);
+        items[item].randomEvent();
     },
     addEventListener: function (event, fn) {
         this.box.addEventListener(event, fn);
