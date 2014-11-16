@@ -3,10 +3,18 @@
  */
 
 var stage;
+var roomType = Object.freeze({
+    ENTERTAINMENT: "Entertainment",
+    BATHROOM: "Bathroom",
+    STUDY: "Study",
+    BEDROOM: "Bedroom",
+    WORKSHOP: "Workshop",
+    ENTRANCE: "Entrance"
+});
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
-    var game = new GameBoard(5, 5, stage);
+    var game = new GameBoard(3, 3, stage);
     game.draw_boxes();
     game.addEventListener("click", function (e) {
         var coords = game.coordinates_to_box(e.stageX, e.stageY)
