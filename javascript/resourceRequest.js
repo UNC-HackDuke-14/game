@@ -12,23 +12,11 @@ function ResourceRequest(item, duration) {
     this.item = item;
     this.duration = duration * 1000;
     this.start_time = new Date().getTime();
-    this.text = new createjs.Text(item.item_type.resource_type + " request");
+    this.text = new createjs.Text(item.item_type.name + " request");
     this.progress_bar = new createjs.Shape();
     this.paint(true, 0);
     createjs.Ticker.on("tick", this.tick, this);
-    this.addEventListener("click", function () {
-        switch (this.type) {
-            case ResourceRequest.resourceEnum.ELECTRICITY:
-                alert("electricity");
-                break;
-            case ResourceRequest.resourceEnum.WATER:
-                break;
-            case ResourceRequest.resourceEnum.OIL:
-                break;
-            default:
-                break;
-        }
-    });
+    this.progress_bar.on("click", this.satisfy_request, this);
 }
 
 ResourceRequest.prototype = {
@@ -56,17 +44,23 @@ ResourceRequest.prototype = {
         this.item.game_square.game_board.game_stage.update();
     },
     tick: function (e) {
-        var t = new Date().getTime() - this.start_time;
-        var c = this.duration;
-        if (c < t) {
+        if (!this.item.isOn) {
+            var t = new Date().getTime() - this.start_time;
+            var c = this.duration;
+            if (c < t) {
+                this.item.game_square.game_board.game_state.level--;
+                this.paint(false, 0);
+                e.remove();
+            } else {
+                this.paint(true, t / c);
+            }
+        } else {
+            this.item.game_square.game_board.game_state.level++;
             this.paint(false, 0);
             e.remove();
-        } else {
-            this.paint(true, t / c);
         }
     },
-    addEventListener: function (event, fn) {
-        this.text.addEventListener(event, fn);
+    satisfy_request: function() {
+        this.item.toggleState();
     }
-
 }

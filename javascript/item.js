@@ -60,7 +60,7 @@ var ItemType = Object.freeze({
     },
     FAN: {
         name: "Fan",
-        resource_type: ResourceRequest.resourceEnum.WATER,
+        resource_type: ResourceRequest.resourceEnum.ELECTRICITY,
         resource_consumption: {oilUsageRate: 0, waterUsageRate: 0, electricUsageRate: 1},
         height: 0.2,
         width: 0.2,
