@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9f28b56-2f27-45b8-8844-dfa5c6582263" name="Default" comment="game_board encapsulates game_state">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/gameBoard.js" afterPath="$PROJECT_DIR$/javascript/gameBoard.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/gameSquare.js" afterPath="$PROJECT_DIR$/javascript/gameSquare.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascript/resourceRequest.js" afterPath="$PROJECT_DIR$/javascript/resourceRequest.js" />
+    <list default="true" id="d9f28b56-2f27-45b8-8844-dfa5c6582263" name="Default" comment="resource request">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="game.iws" />
@@ -391,7 +388,13 @@
       <option name="project" value="LOCAL" />
       <updated>1416108642127</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="resource request">
+      <created>1416110449143</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1416110449143</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -474,7 +477,8 @@
     <MESSAGE value="moved roomEnum to correct file" />
     <MESSAGE value="resourceRequest skeleton" />
     <MESSAGE value="game_board encapsulates game_state" />
-    <option name="LAST_COMMIT_MESSAGE" value="game_board encapsulates game_state" />
+    <MESSAGE value="resource request" />
+    <option name="LAST_COMMIT_MESSAGE" value="resource request" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
